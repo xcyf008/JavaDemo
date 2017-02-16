@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloInterface" class="springdemo.HelloImp"></bean>
+    <bean id="petShopService" class="springdemo.PetShopService">
+        <property name="petDao" ref="petDao"></property>
+    </bean>
+    <bean id="petDao" class="springdemo.PetDao"></bean>
+
+    <bean id="cdPlayer" class="springdemo.CDPlayer">
+        <constructor-arg ref="sgtPeppers" />
+    </bean>
+
+    <bean id="sgtPeppers" class="springdemo.SgtPeppers"></bean>
+
+    <bean id="blankDisc" class="springdemo.BlankDisc">
+        <constructor-arg value="Sgt. Pepper's Lonely Heart Club Band" />
+        <constructor-arg value="The Beatles" />
+        <constructor-arg>
+            <list>
+                <value>Sgt. Pepper's Lonely Heart Club Band</value>
+                <value>With a Little Help From My Friends</value>
+                <value>Getting Better</value>
+                <value>Fix a Hole</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>
